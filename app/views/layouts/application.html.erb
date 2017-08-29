@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RescueMission</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <div class="topnav" id="myTopnav">
+   <%=link_to"Questions Archive", questions_path%>
+  <%=link_to "Ask a Question", new_question_path%>
+</div>
+
+  <body>
+    <h4><%=flash[:notice] || flash[:errors]%></h4>
+    <%= yield %>
+  </body>
+</html>

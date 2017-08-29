@@ -1,0 +1,22 @@
+<h3 class="header">Question Details</h3>
+
+
+<h4 class="question"> <%= @question.title %></h4>
+<p> <%= @question.question_text %></p>
+
+
+<h4>Answers:</h4>
+<% @answers.each do |a| %>
+ <p><%= a.answer %></p>
+ <% end %>
+
+
+ <%= form_for [@question, @answer] do |f|%>
+  <%=f.label :answer%>
+  <%=f.text_field :answer%>
+  <%= f.submit%>
+  <%end%>
+
+<%= link_to "Delete this question", question_path(@question), method: :delete%>
+<%= link_to "Edit this question" , edit_question_path(@question)%>
+ <%= link_to 'Back to Questions', questions_path %>
